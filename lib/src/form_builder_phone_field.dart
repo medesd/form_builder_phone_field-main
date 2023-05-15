@@ -204,39 +204,42 @@ class FormBuilderPhoneField extends FormBuilderFieldDecoration<String> {
               style: style,
               focusNode: state.effectiveFocusNode,
               decoration: state.decoration.copyWith(
-                prefixIcon: GestureDetector(
-                    onTap: state.enabled
-                        ? () {
-                            state.focus();
-                            isCupertinoPicker
-                                ? state._openCupertinoCountryPicker()
-                                : state._openCountryPickerDialog();
-                          }
-                        : null,
-                    child: countryPicker != null
-                        ? countryPicker(
-                            CountryPickerUtils.getDefaultFlagImage(
-                              state._selectedDialogCountry,
-                            ),
-                            '+${state._selectedDialogCountry.phoneCode} ',
-                          )
-                        : Row(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.only(left: 5),
+                  child: GestureDetector(
+                      onTap: state.enabled
+                          ? () {
+                              state.focus();
+                              isCupertinoPicker
+                                  ? state._openCupertinoCountryPicker()
+                                  : state._openCountryPickerDialog();
+                            }
+                          : null,
+                      child: countryPicker != null
+                          ? countryPicker(
                               CountryPickerUtils.getDefaultFlagImage(
                                 state._selectedDialogCountry,
                               ),
-                              const SizedBox(width: 5),
-                              Text(
-                                '+${state._selectedDialogCountry.phoneCode} ',
-                                style: Theme.of(state.context)
-                                    .textTheme
-                                    .titleMedium!
-                                    .merge(style),
-                              ),
-                            ],
-                          )),
+                              '+${state._selectedDialogCountry.phoneCode} ',
+                            )
+                          : Row(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                CountryPickerUtils.getDefaultFlagImage(
+                                  state._selectedDialogCountry,
+                                ),
+                                const SizedBox(width: 5),
+                                Text(
+                                  '+${state._selectedDialogCountry.phoneCode} ',
+                                  style: Theme.of(state.context)
+                                      .textTheme
+                                      .titleMedium!
+                                      .merge(style),
+                                ),
+                              ],
+                            )),
+                ),
               ),
               onChanged: (value) {
                 // Use setValue instead didChange to avoid parseNumber
