@@ -221,13 +221,13 @@ class FormBuilderPhoneField extends FormBuilderFieldDecoration<String> {
                             '+${state._selectedDialogCountry.phoneCode} ',
                           )
                         : Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
-                              iconSelector ?? const Icon(Icons.arrow_drop_down),
-                              const SizedBox(width: 10),
                               CountryPickerUtils.getDefaultFlagImage(
                                 state._selectedDialogCountry,
                               ),
-                              const SizedBox(width: 10),
+                              const SizedBox(width: 5),
                               Text(
                                 '+${state._selectedDialogCountry.phoneCode} ',
                                 style: Theme.of(state.context)
