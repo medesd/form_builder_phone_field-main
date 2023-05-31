@@ -242,8 +242,10 @@ class FormBuilderPhoneField extends FormBuilderFieldDecoration<String> {
                 ),
               ),
               onChanged: (value) {
+                print(state._selectedDialogCountry.phoneCode);
                 // Use setValue instead didChange to avoid parseNumber
-                state.setValue(value);
+                state.setValue(
+                    "+${state._selectedDialogCountry.phoneCode}$value");
               },
               maxLines: 1,
               keyboardType: keyboardType,
