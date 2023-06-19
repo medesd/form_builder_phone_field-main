@@ -143,10 +143,10 @@ packages:
     dependency: "direct main"
     description:
       name: phone_number
-      sha256: "861cafa56882b53510a18b5c22a599e6f2f2edf33209385ad1d14fb7e3e6049c"
+      sha256: "509033faaed1e95f778b9dd6679a458d4e2641c579d40bee0db1cb674de8efac"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0-dev.2"
+    version: "2.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
